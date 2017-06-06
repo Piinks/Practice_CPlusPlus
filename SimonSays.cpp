@@ -4,23 +4,25 @@ using namespace std;
 
 int main(){
     int numCommands;
-    string strNumCommands;
     string command;
-    string simon = "Simon says";
-    size_t found;
+    string simon = "simon says";
+    int found;
     int length;
 
     //cout << "Enter number of commands: ";
-    getline(cin, strNumCommands);
-    numCommands = stoi(strNumCommands);
+    cin >> numCommands;
+    cin.ignore();
     for(int i = 0; i < numCommands; i++){
         //cout << "Enter command: ";
         getline(cin, command);
         found = command.find(simon);
-        if(found != string::npos){
+        //cout << found << endl;
+        if(found == 0){
             length = command.size();
-            cout << command.substr(11, (length-11)) << endl;
+            if(length > 11)
+                cout << command.substr(11, (length-11));
         }
+        cout << endl;
     }
     return 0;
 }
